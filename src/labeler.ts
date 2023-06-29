@@ -274,6 +274,14 @@ export class Labeler {
       }
 
       // Create
+      if (exclusions.includes(fileLabel.name)) {
+        labels.push({
+          ...fileLabel,
+          ghaction_status: LabelStatus.Exclude,
+          ghaction_log: `🚫️ Excluding '${fileLabel.name}' from create.`
+        });
+        continue;
+      }
       labels.push({
         ...fileLabel,
         ghaction_status: LabelStatus.Create,
