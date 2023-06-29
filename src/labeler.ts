@@ -286,7 +286,7 @@ export class Labeler {
       labels.push({
         ...fileLabel,
         ghaction_status: LabelStatus.Create,
-        ghaction_log: `🎨 Creating '${fileLabel.name}' label with color '${fileLabel.color}'${fileLabel.description ? ` and desc '${fileLabel.description}'` : ''} '${fileLabel.name}' label ('${fileLabel}') and (('${exclusions}'))`
+        ghaction_log: `🎨 Creating (reality check) '${fileLabel.name}' label with color '${fileLabel.color}'${fileLabel.description ? ` and desc '${fileLabel.description}'` : ''} '${fileLabel.name}' label ('${fileLabel}') and (('${exclusions}'))`
       });
     }
 
