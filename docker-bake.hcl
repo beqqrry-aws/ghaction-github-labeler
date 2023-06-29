@@ -47,7 +47,7 @@ target "vendor-validate" {
 }
 
 variable "GITHUB_REPOSITORY" {
-  default = "crazy-max/ghaction-github-labeler"
+  default = "beqqrry-aws/ghaction-github-labeler"
 }
 
 target "test" {
