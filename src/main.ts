@@ -15,7 +15,7 @@ async function run() {
     const labeler = new Labeler(inputs);
     await labeler.printRepoLabels();
 
-    core.info(`🏃 Running GitHub Labeler`);
+    core.info(`🏃 Running GitHub Labeler!!!`);
     await labeler.run();
   } catch (error) {
     core.setFailed(error.message);
