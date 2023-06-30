@@ -203,7 +203,7 @@ export class Labeler {
 
   private async computeActionLabels(): Promise<Label[]> {
     const labels = Array<Label>();
-    const exclusions: string[] = [];
+    const exclusions: string[] = this.exclude;
     /*
     if (this.exclude.length > 0) {
       exclusions = matcher(
