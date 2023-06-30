@@ -203,15 +203,15 @@ export class Labeler {
 
   private async computeActionLabels(): Promise<Label[]> {
     const labels = Array<Label>();
-    let exclusions: string[] = [];
-
+    const exclusions: string[] = this.exclude;
+    /*
     if (this.exclude.length > 0) {
       exclusions = matcher(
         (await this.repoLabels).map(label => label.name),
         this.exclude
       );
     }
-
+*/
     for (const fileLabel of await this.fileLabels) {
       const repoLabel = await this.getRepoLabel(fileLabel.name);
 
@@ -274,10 +274,18 @@ export class Labeler {
       }
 
       // Create
+      if (exclusions.includes(fileLabel.name)) {
+        labels.push({
+          ...fileLabel,
+          ghaction_status: LabelStatus.Exclude,
+          ghaction_log: `🚫️ Excluding '${fileLabel.name}' from create.`
+        });
+        continue;
+      }
       labels.push({
         ...fileLabel,
         ghaction_status: LabelStatus.Create,
-        ghaction_log: `🎨 Creating '${fileLabel.name}' label with color '${fileLabel.color}'${fileLabel.description ? ` and desc '${fileLabel.description}'` : ''}`
+        ghaction_log: `🎨 Creating (reality check) '${fileLabel.name}' label with color '${fileLabel.color}' '${fileLabel.description}' '${fileLabel.name}' label ('${fileLabel}') and (('${exclusions}'))`
       });
     }
 

@@ -1,5 +1,5 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
-name: 'GitHub Labeler'
+name: 'GitHub Labeler - modified by beqqrry-aws for experimentation purposes'
 description: 'GitHub Action to manage labels on GitHub'
 author: 'crazy-max'
 branding:
