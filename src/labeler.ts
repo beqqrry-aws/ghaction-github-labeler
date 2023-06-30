@@ -203,15 +203,15 @@ export class Labeler {
 
   private async computeActionLabels(): Promise<Label[]> {
     const labels = Array<Label>();
-    let exclusions: string[] = [];
-
+    const exclusions: string[] = [];
+    /*
     if (this.exclude.length > 0) {
       exclusions = matcher(
         (await this.repoLabels).map(label => label.name),
         this.exclude
       );
     }
-
+*/
     for (const fileLabel of await this.fileLabels) {
       const repoLabel = await this.getRepoLabel(fileLabel.name);
 
